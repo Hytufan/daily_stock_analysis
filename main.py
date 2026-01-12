@@ -551,7 +551,8 @@ class StockAnalysisPipeline:
         
         # 发送通知
         if results and send_notification and not dry_run:
-            self._send_notifications(results)
+            for res in results:
+                self._send_notifications([res])
         
         return results
     
